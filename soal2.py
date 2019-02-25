@@ -17,15 +17,15 @@ i=plt.subplot(131, projection='3d')
 
 ## Gambar 1 x-2y+z=6
 # x dan y = 0
-a=np.array([[1]]) #harus dua dimensi variablenya
+a=np.array([[1]]) 
 b=np.array([6])
 z1=np.linalg.solve(a,b)
 # y dan z = 0
-c=np.array([[1]]) #harus dua dimensi variablenya
+c=np.array([[1]]) 
 b=np.array([6])
 x1=np.linalg.solve(c,b)
 # x dan z = 0
-d=np.array([[-2]]) #harus dua dimensi variablenya
+d=np.array([[-2]]) 
 b=np.array([6])
 y1=np.linalg.solve(d,b)
 titikx1=np.array([x1[0],0,0])
@@ -37,21 +37,26 @@ i.set_xlabel('Nilai X')
 i.set_ylabel('Nilai Y')
 i.set_zlabel('Nilai Z')
 i.text2D(0.05, 0.95, "x-2y+z=6", transform=i.transAxes)
-verts = [list(zip(titikx1,titiky1,titikz1))]
-i.add_collection3d(Poly3DCollection(verts,facecolor='red',alpha=0.2))
+i.tick_params(axis='both',labelsize=5)
+'''
+pakai collection3d, ga bisa transparansi/alpha nya
+'''
+#verts = [list(zip(titikx1,titiky1,titikz1))]
+#i.add_collection3d(Poly3DCollection(verts,facecolor='red',alpha=0.2))
+i.plot_trisurf(titikx1,titiky1,titikz1,color='red',alpha=0.6)
 
 ## Gambar 2 3x+y-2z=4
 j=plt.subplot(132, projection='3d')
 # x dan y = 0
-a2=np.array([[-2]]) #harus dua dimensi variablenya
+a2=np.array([[-2]]) 
 b2=np.array([4])
 z2=np.linalg.solve(a2,b2)
 # y dan z = 0
-c2=np.array([[3]]) #harus dua dimensi variablenya
+c2=np.array([[3]]) 
 b2=np.array([4])
 x2=np.linalg.solve(c2,b2)
 # x dan z = 0
-d2=np.array([[1]]) #harus dua dimensi variablenya
+d2=np.array([[1]]) 
 b2=np.array([4])
 y2=np.linalg.solve(d2,b2)
 titikx2=np.array([x2[0],0,0])
@@ -61,22 +66,24 @@ j.scatter(titikx2,titiky2,titikz2,color='red',marker='o',s=20)
 j.set_xlabel('Nilai X')
 j.set_ylabel('Nilai Y')
 j.set_zlabel('Nilai Z')
-verts = [list(zip(titikx2,titiky2,titikz2))]
+j.tick_params(axis='both',labelsize=5)
 j.text2D(0.05, 0.95, "3x+y-2z=4", transform=j.transAxes)
-j.add_collection3d(Poly3DCollection(verts,facecolor='green',alpha=0.2))
+verts = [list(zip(titikx2,titiky2,titikz2))]
+#j.add_collection3d(Poly3DCollection(verts,facecolor='green',alpha=0.2))
+j.plot_trisurf(titikx2,titiky2,titikz2,color='green',alpha=0.6)
 
 ## Gambar 3 7x-6y-1z=10
 k=plt.subplot(133, projection='3d')
 # x dan y = 0
-a3=np.array([[-1]]) #harus dua dimensi variablenya
+a3=np.array([[-1]]) 
 b3=np.array([10])
 z3=np.linalg.solve(a3,b3)
 # y dan z = 0
-c3=np.array([[7]]) #harus dua dimensi variablenya
+c3=np.array([[7]]) 
 b3=np.array([10])
 x3=np.linalg.solve(c3,b3)
 # x dan z = 0
-d3=np.array([[-6]]) #harus dua dimensi variablenya
+d3=np.array([[-6]]) 
 b3=np.array([10])
 y3=np.linalg.solve(d3,b3)
 titikx3=np.array([x3[0],0,0])
@@ -86,9 +93,11 @@ k.scatter(titikx3,titiky3,titikz3,color='green',marker='o',s=20)
 k.set_xlabel('Nilai X')
 k.set_ylabel('Nilai Y')
 k.set_zlabel('Nilai Z')
-verts = [list(zip(titikx3,titiky3,titikz3))]
+#verts = [list(zip(titikx3,titiky3,titikz3))]
+#k.add_collection3d(Poly3DCollection(verts,facecolor='purple',alpha=0.2))
 k.text2D(0.05, 0.95, "7x-6y-1z=10", transform=k.transAxes)
-k.add_collection3d(Poly3DCollection(verts,facecolor='purple',alpha=0.2))
+k.tick_params(axis='both',labelsize=5)
+k.plot_trisurf(titikx3,titiky3,titikz3,color='purple',alpha=0.6)
 plt.grid(True)
 plt.show()
 
